@@ -1,13 +1,15 @@
+import util.Node;
+
 public class BinarySearchTree {
 
     public static void main(String... args){
-        NodeB n3 = new NodeB(3);
-        NodeB n2 = new NodeB(2);
-        NodeB n5 = new NodeB(5);
-        NodeB n1 = new NodeB(1);
-        NodeB n4 = new NodeB(4);
-        NodeB n6 = new NodeB(6);
-        NodeB n7 = new NodeB(7);
+        Node n3 = new Node(3);
+        Node n2 = new Node(2);
+        Node n5 = new Node(5);
+        Node n1 = new Node(1);
+        Node n4 = new Node(4);
+        Node n6 = new Node(6);
+        Node n7 = new Node(7);
 
         n3.left = n2;
         n3.right = n5;
@@ -19,7 +21,7 @@ public class BinarySearchTree {
         System.out.println(getH(n3));
     }
 
-    static int getH(NodeB r){
+    static int getH(Node r){
         int leftCount = 0, rightCount = 0;
         if(r.left != null){
             leftCount = getH(r.left) + 1;
@@ -28,19 +30,5 @@ public class BinarySearchTree {
             rightCount = getH(r.right) + 1;
         }
         return leftCount > rightCount ? leftCount : rightCount;
-    }
-}
-
-class NodeB{
-    NodeB left, right;
-    int data;
-    NodeB(int data){
-        this.data = data;
-        left=right=null;
-    }
-
-    @Override
-    public String toString() {
-        return data + "";
     }
 }
