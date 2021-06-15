@@ -1,3 +1,5 @@
+import util.NodeList;
+
 import java.util.Scanner;
 
 public class Main {
@@ -6,10 +8,10 @@ public class Main {
 //        int n = scan.nextInt();
 //        System.out.printf("Factorial de %d es %d", n, factorial(n));
 
-        Node head = insert(null, 9);
+        NodeList head = insert(null, 9);
         insert(head, 1);
         insert(head, 3);
-        Node newHead = insert(head, 5);
+        NodeList newHead = insert(head, 5);
 
         System.out.printf("New head value is %d\n", newHead.data);
 //        Node node2 = new Node(1);
@@ -20,7 +22,7 @@ public class Main {
 //        node2.next = node3;
 
 
-        Node start = head;
+        NodeList start = head;
         while(start != null){
             System.out.println(start.data);
             start = start.next;
@@ -28,11 +30,11 @@ public class Main {
 
     }
 
-    public static Node insert(Node head, int data){
+    public static NodeList insert(NodeList head, int data){
         if(head == null){
-            return new Node(data);
+            return new NodeList(data);
         }else if(head.next == null){
-            head.next = new Node(data);
+            head.next = new NodeList(data);
         }else{
             insert(head.next, data);
         }
@@ -41,14 +43,5 @@ public class Main {
 
     public static int factorial(int n){
         return n == 1 ? n : factorial(n-1)*n;
-    }
-}
-
-class Node{
-    int data;
-    Node next;
-    Node(int d){
-        this.data = d;
-        this.next = null;
     }
 }
