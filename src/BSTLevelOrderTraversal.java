@@ -1,6 +1,8 @@
 import util.Node;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class BSTLevelOrderTraversal {
@@ -12,6 +14,8 @@ public class BSTLevelOrderTraversal {
         Node n4 = new Node(4);
         Node n5 = new Node(5);
         Node n7 = new Node(7);
+        Node n8 = new Node(8);
+        Node n9 = new Node(9);
 
         n3.left = n2;
         n3.right = n5;
@@ -21,7 +25,13 @@ public class BSTLevelOrderTraversal {
         n5.left = n4;
         n5.right = n7;
 
+        n4.left = n8;
+        n4.right = n9;
+
         printLevelOrderTraversal(n3);
+
+        System.out.println();
+        System.out.println(printLevelsOrderTraversal(n3));
     }
 
     static void printLevelOrderTraversal(Node root){
@@ -37,5 +47,25 @@ public class BSTLevelOrderTraversal {
             }
             System.out.println(n);
         }
+    }
+
+    static List<List<Node>> printLevelsOrderTraversal(Node root){
+        List<List<Node>> result = new ArrayList();
+        Queue<Node> q = new LinkedList();
+        q.add(root);
+        while(!q.isEmpty()){
+            List<Node> level = new ArrayList<>();
+            int queueSize = q.size();
+            for (int i = 0; i < queueSize; i++) {
+                Node n = q.remove();
+                level.add(n);
+                if(n.left != null)
+                    q.add(n.left);
+                if(n.right != null)
+                    q.add(n.right);
+            }
+            result.add(level);
+        }
+        return result;
     }
 }
