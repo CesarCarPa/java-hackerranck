@@ -2,11 +2,11 @@ package sortingAlgorithms;
 
 import java.util.Arrays;
 
-public class BubbleSort {
+public class InsertionSort {
 
     public static void main(String... args) {
         int[] arr = {20, 35, -15, 7, 55, 1, -22};
-        bubbleSort(arr);
+        insertionSort(arr);
         Arrays.stream(arr).forEach(System.out::println);
     }
 
@@ -22,16 +22,15 @@ public class BubbleSort {
     /**
      * Big O = n²
      * Stable - keeps the repeated values in its order
-     * Compares the first element with the second one and move to greater to the right
-     * position each iteration
      */
-    static void bubbleSort(int[] arr) {
-        for (int i = arr.length - 1; i > 0; i--) {
-            for (int j = 0; j < i; j++) {
-                if(arr[j] > arr[j + 1]) {
-                    swap(arr, j, j+1);
-                }
+    static void insertionSort(int[] arr) {
+        for (int firstUnsortedIndex = 1; firstUnsortedIndex < arr.length; firstUnsortedIndex ++ ) {
+            int newElement = arr[firstUnsortedIndex];
+            int i;
+            for (i = firstUnsortedIndex; i > 0 && arr[i - 1] > newElement; i--) {
+                swap(arr, i, i - 1);
             }
+            arr[i] = newElement;
         }
     }
 }

@@ -21,6 +21,7 @@ public class SelectionSort {
 
     /**
      * Big O = n²
+     * Unstable - doesn't keep the repeated values in its order
      * Look for the greatest element in the array and move it to the lastUnsortedIndex
      * position each iteration
      * Doesn't require as much swaps as bubble sort
