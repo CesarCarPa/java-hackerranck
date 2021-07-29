@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class LevelOrderTraversal {
+public class Traversal {
 
     public static void main(String... args){
         Node n1 = new Node(1);
@@ -19,6 +19,12 @@ public class LevelOrderTraversal {
         Node n8 = new Node(8);
         Node n9 = new Node(9);
 
+        n1.left = n2;
+        n1.right = n3;
+        n2.left = n4;
+        n2.right = n5;
+
+        /*
         n3.left = n2;
         n3.right = n5;
 
@@ -30,13 +36,23 @@ public class LevelOrderTraversal {
         n4.left = n8;
         n4.right = n9;
 
-        printLevelOrderTraversal(n3);
+         */
 
+//        printLevelOrderTraversal(n3);
+
+//        System.out.println();
+//        System.out.println(printLevelsOrderTraversal(n3));
+
+        levelOrderTraversal(n1);
         System.out.println();
-        System.out.println(printLevelsOrderTraversal(n3));
+        posorder(n1);
+        System.out.println();
+        inorder(n1);
+        System.out.println();
+        preorder(n1);
     }
 
-    static void printLevelOrderTraversal(Node root){
+    static void levelOrderTraversal(Node root){
         Queue<Node> q = new LinkedList();
         q.add(root);
         while(!q.isEmpty()){
@@ -69,5 +85,32 @@ public class LevelOrderTraversal {
             result.add(level);
         }
         return result;
+    }
+
+    static void posorder(Node root) {
+        if(root == null) {
+            return;
+        }
+        posorder(root.left);
+        posorder(root.right);
+        System.out.println(root);
+    }
+
+    static void inorder(Node root) {
+        if(root == null) {
+            return;
+        }
+        inorder(root.left);
+        System.out.println(root);
+        inorder(root.right);
+    }
+
+    static void preorder(Node root) {
+        if(root == null) {
+            return;
+        }
+        System.out.println(root);
+        preorder(root.left);
+        preorder(root.right);
     }
 }
