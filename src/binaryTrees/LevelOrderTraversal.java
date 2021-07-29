@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class BSTLevelOrderTraversal {
+public class LevelOrderTraversal {
 
     public static void main(String... args){
         Node n1 = new Node(1);

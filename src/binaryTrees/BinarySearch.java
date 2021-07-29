@@ -2,7 +2,7 @@ package binaryTrees;
 
 import util.Node;
 
-public class BinarySearchTree {
+public class BinarySearch {
 
     public static void main(String... args){
         Node n3 = new Node(3);
