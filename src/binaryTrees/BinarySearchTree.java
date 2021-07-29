@@ -1,3 +1,5 @@
+package binaryTrees;
+
 import util.Node;
 
 public class BinarySearchTree {
