@@ -2,7 +2,7 @@ public class Anagram {
 
     public static void main(String[] args){
 
-//        System.out.println(countOcurrences("anagrama", 'a'));
+//        System.out.println(countOccurrences("anagrama", 'a'));
         System.out.println(isAnagram("NanAgram", "marganaN"));
     }
 
