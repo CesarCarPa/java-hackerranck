@@ -1,7 +1,5 @@
 package arrays;
 
-import java.util.regex.Pattern;
-
 public class ReverseStringWithSpecialChars {
 
     public static void main(String[] args) {
